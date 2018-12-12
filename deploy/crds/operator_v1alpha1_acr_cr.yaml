@@ -1,0 +1,12 @@
+apiVersion: operator.azure/v1alpha1
+kind: Acr
+metadata:
+  name: acrexample
+spec:
+  # Add fields here
+  resource_group_name: azure-operator
+  location: westeurope
+  sku: Basic
+  admin_enabled: false
+
+
