@@ -2,7 +2,7 @@ package acr
 
 import (
 	"context"
-	operatorv1alpha1 "github.com/Bee-Projects/azure-service-operator/pkg/apis/operator/v1alpha1"
+	operatorv1alpha1 "github.com/techniumlabs/azure-service-operator/pkg/apis/operator/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -19,7 +19,7 @@ import (
 
 	"fmt"
 	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/authentication"
-	az "github.com/Bee-Projects/azure-service-operator/pkg/provider/azure/azurerm"
+	az "github.com/techniumlabs/azure-service-operator/pkg/provider/azure/azurerm"
 	"github.com/hashicorp/terraform/helper/schema"
 )
 

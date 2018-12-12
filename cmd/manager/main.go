@@ -7,8 +7,8 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/Bee-Projects/azure-service-operator/pkg/apis"
-	"github.com/Bee-Projects/azure-service-operator/pkg/controller"
+	"github.com/techniumlabs/azure-service-operator/pkg/apis"
+	"github.com/techniumlabs/azure-service-operator/pkg/controller"
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	"github.com/operator-framework/operator-sdk/pkg/leader"
 	"github.com/operator-framework/operator-sdk/pkg/ready"
