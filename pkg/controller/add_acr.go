@@ -1,7 +1,7 @@
 package controller
 
 import (
-	"github.com/techniumlabs/azure-service-operator/pkg/controller/acr"
+	"github.com/bee-projects/azure-service-operator/pkg/controller/acr"
 )
 
 func init() {

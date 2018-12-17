@@ -2,7 +2,7 @@ package controller
 
 import (
 	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
-	"github.com/techniumlabs/azure-service-operator/pkg/azure"
+	"github.com/bee-projects/azure-service-operator/pkg/azure"
 	"os"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 )

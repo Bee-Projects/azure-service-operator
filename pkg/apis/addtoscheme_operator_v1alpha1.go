@@ -1,7 +1,7 @@
 package apis
 
 import (
-	"github.com/techniumlabs/azure-service-operator/pkg/apis/operator/v1alpha1"
+	"github.com/bee-projects/azure-service-operator/pkg/apis/operator/v1alpha1"
 )
 
 func init() {

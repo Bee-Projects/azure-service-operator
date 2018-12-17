@@ -2,12 +2,12 @@ package acr
 
 import (
 	"context"
-	"github.com/techniumlabs/azure-service-operator/pkg/azure"
+	"github.com/bee-projects/azure-service-operator/pkg/azure"
 	"time"
 
 	// "github.com/Azure/go-autorest/autorest/azure"
 	// "github.com/Azure/go-autorest/autorest/azure/auth"
-	operatorv1alpha1 "github.com/techniumlabs/azure-service-operator/pkg/apis/operator/v1alpha1"
+	operatorv1alpha1 "github.com/bee-projects/azure-service-operator/pkg/apis/operator/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	"k8s.io/apimachinery/pkg/runtime"
