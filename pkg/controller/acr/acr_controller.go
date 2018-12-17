@@ -2,25 +2,26 @@ package acr
 
 import (
 	"context"
+	"github.com/techniumlabs/azure-service-operator/pkg/azure"
+	"time"
+
+	// "github.com/Azure/go-autorest/autorest/azure"
+	// "github.com/Azure/go-autorest/autorest/azure/auth"
 	operatorv1alpha1 "github.com/techniumlabs/azure-service-operator/pkg/apis/operator/v1alpha1"
 	corev1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
-	"k8s.io/apimachinery/pkg/types"
+
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/controller"
-	"sigs.k8s.io/controller-runtime/pkg/controller/controllerutil"
 	"sigs.k8s.io/controller-runtime/pkg/handler"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 	logf "sigs.k8s.io/controller-runtime/pkg/runtime/log"
 	"sigs.k8s.io/controller-runtime/pkg/source"
 
-	"fmt"
-	"github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/authentication"
-	az "github.com/techniumlabs/azure-service-operator/pkg/provider/azure/azurerm"
-	"github.com/hashicorp/terraform/helper/schema"
+	resourcesSDK "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2017-05-10/resources"
+	cr "github.com/Azure/azure-sdk-for-go/services/containerregistry/mgmt/2018-09-01/containerregistry"
 )
 
 var log = logf.Log.WithName("controller_acr")
@@ -32,13 +33,46 @@ var log = logf.Log.WithName("controller_acr")
 
 // Add creates a new Acr Controller and adds it to the Manager. The Manager will set fields on the Controller
 // and Start it when the Manager is Started.
-func Add(mgr manager.Manager) error {
-	return add(mgr, newReconciler(mgr))
+func Add(mgr manager.Manager, config azure.Config) error {
+	return add(mgr, newReconciler(mgr, config))
 }
 
 // newReconciler returns a new reconcile.Reconciler
-func newReconciler(mgr manager.Manager) reconcile.Reconciler {
-	return &ReconcileAcr{client: mgr.GetClient(), scheme: mgr.GetScheme()}
+func newReconciler(mgr manager.Manager, config azure.Config) reconcile.Reconciler {
+	azureSubscriptionID := config.SubscriptionID
+
+	authorizer, err := azure.GetBearerTokenAuthorizer(
+		config.Environment,
+		config.TenantID,
+		config.ClientID,
+		config.ClientSecret,
+	)
+	if err != nil {
+		return nil
+	}
+
+	resourceGroupsClient := resourcesSDK.NewGroupsClientWithBaseURI(
+		config.Environment.ResourceManagerEndpoint,
+		azureSubscriptionID,
+	)
+	resourceGroupsClient.Authorizer = authorizer
+	resourceGroupsClient.UserAgent = azure.GetUserAgent(resourceGroupsClient.Client)
+	resourceDeploymentsClient := resourcesSDK.NewDeploymentsClientWithBaseURI(
+		config.Environment.ResourceManagerEndpoint,
+		azureSubscriptionID,
+	)
+	resourceDeploymentsClient.Authorizer = authorizer
+	resourceDeploymentsClient.UserAgent =
+		azure.GetUserAgent(resourceDeploymentsClient.Client)
+	resourceDeploymentsClient.PollingDuration = time.Minute * 45
+	armDeployer := azure.NewDeployer(
+		resourceGroupsClient,
+		resourceDeploymentsClient,
+	)
+
+	acrClient := cr.NewRegistriesClient(config.SubscriptionID)
+	acrClient.Authorizer = authorizer
+	return &ReconcileAcr{client: mgr.GetClient(), scheme: mgr.GetScheme(), deployer: armDeployer, acrClient: acrClient}
 }
 
 // add adds a new Controller to mgr with r as the reconcile.Reconciler
@@ -76,6 +110,8 @@ type ReconcileAcr struct {
 	// that reads objects from the cache and writes to the apiserver
 	client client.Client
 	scheme *runtime.Scheme
+	deployer *azure.ArmDeployer
+	acrClient cr.RegistriesClient
 }
 
 // Reconcile reads that state of the cluster for a Acr object and makes changes based on the state read
@@ -87,7 +123,7 @@ type ReconcileAcr struct {
 // Result.Requeue is true, otherwise upon completion it will remove the work from the queue.
 func (r *ReconcileAcr) Reconcile(request reconcile.Request) (reconcile.Result, error) {
 	reqLogger := log.WithValues("Request.Namespace", request.Namespace, "Request.Name", request.Name)
-	reqLogger.Info("Reconciling Acr")
+	reqLogger.Info("Reconciling Acr", "Request", request)
 
 	// Fetch the Acr instance
 	instance := &operatorv1alpha1.Acr{}
@@ -103,54 +139,59 @@ func (r *ReconcileAcr) Reconcile(request reconcile.Request) (reconcile.Result, e
 		return reconcile.Result{}, err
 	}
 
-	// Define a new Pod object
-	pod := newPodForCR(instance)
+	// If the resource is deleted
+	if instance.ObjectMeta.DeletionTimestamp != nil && instance.ObjectMeta.Finalizers != nil {
+		reqLogger.Info("Deleting ACR", "value", instance)
 
-	// Set Acr instance as the owner and controller
-	if err := controllerutil.SetControllerReference(instance, pod, r.scheme); err != nil {
-		return reconcile.Result{}, err
-	}
-
-	// Check if this Pod already exists
-	found := &corev1.Pod{}
-	err = r.client.Get(context.TODO(), types.NamespacedName{Name: pod.Name, Namespace: pod.Namespace}, found)
-	if err != nil && errors.IsNotFound(err) {
-		reqLogger.Info("Creating a new Pod", "Pod.Namespace", pod.Namespace, "Pod.Name", pod.Name)
-		err = r.client.Create(context.TODO(), pod)
+		// Delete the resources
+		ctx, cancel := context.WithCancel(context.Background())
+		defer cancel()
+		_, err = r.acrClient.Delete(ctx, instance.Spec.ResourceGroupName, instance.Name)
 		if err != nil {
+			log.Error(err, "")
 			return reconcile.Result{}, err
 		}
 
-		// Pod created successfully - don't requeue
-		return reconcile.Result{}, nil
-	} else if err != nil {
-		return reconcile.Result{}, err
+		// Delete the deployment
+		err := r.deployer.Delete(azure.GetDeploymentName(instance.Name, instance.Spec.ResourceGroupName),
+			instance.Spec.ResourceGroupName,)
+		if err != nil {
+			log.Error(err, "")
+			return reconcile.Result{}, err
+		} else {
+			instance.SetFinalizers(nil)
+			r.client.Update(context.TODO(), instance)
+			return reconcile.Result{}, nil
+		}
+
 	}
 
-	// Pod already exists - don't requeue
-	reqLogger.Info("Skip reconcile: Pod already exists", "Pod.Namespace", found.Namespace, "Pod.Name", found.Name)
+	_, status, err := r.deployer.GetDeploymentAndStatus(azure.GetDeploymentName(instance.Name, instance.Spec.ResourceGroupName),
+		instance.Spec.ResourceGroupName,
+		)
+
+	if status == azure.DeploymentStatusNotFound {
+		r.deployer.Deploy(
+			azure.GetDeploymentName(instance.Name, instance.Spec.ResourceGroupName),
+			instance.Spec.ResourceGroupName,
+			"pkg/azure/templates/acr.json",
+			map[string]interface{}{
+				"registryName" : map[string]interface{}{
+					"value": instance.Name,
+				},
+				"registryLocation": map[string]interface{}{
+					"value": instance.Spec.Location,
+				},
+				"registrySku": map[string]interface{}{
+					"value": instance.Spec.Sku,
+				},
+				"adminUserEnabled": map[string]interface{}{
+					"value": instance.Spec.AdminEnabled,
+				},
+			},
+		)
+	}
+
 	return reconcile.Result{}, nil
 }
 
-// newPodForCR returns a busybox pod with the same name/namespace as the cr
-func newPodForCR(cr *operatorv1alpha1.Acr) *corev1.Pod {
-	labels := map[string]string{
-		"app": cr.Name,
-	}
-	return &corev1.Pod{
-		ObjectMeta: metav1.ObjectMeta{
-			Name:      cr.Name + "-pod",
-			Namespace: cr.Namespace,
-			Labels:    labels,
-		},
-		Spec: corev1.PodSpec{
-			Containers: []corev1.Container{
-				{
-					Name:    "busybox",
-					Image:   "busybox",
-					Command: []string{"sleep", "3600"},
-				},
-			},
-		},
-	}
-}

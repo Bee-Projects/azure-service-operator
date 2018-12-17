@@ -18,67 +18,15 @@
   version = "v0.2.0"
 
 [[projects]]
-  digest = "1:4649686683a38a88cb1af647849511f34e80991942a0f1cfe3997a06b969e798"
+  digest = "1:8c42a1caa6705d899d18b116170ab4bc3f80a5a68fe3f0175c016164bed06bf2"
   name = "github.com/Azure/azure-sdk-for-go"
   packages = [
-    "services/appinsights/mgmt/2015-05-01/insights",
-    "services/automation/mgmt/2015-10-31/automation",
-    "services/cdn/mgmt/2017-10-12/cdn",
-    "services/cognitiveservices/mgmt/2017-04-18/cognitiveservices",
-    "services/compute/mgmt/2018-06-01/compute",
-    "services/containerinstance/mgmt/2018-10-01/containerinstance",
-    "services/containerregistry/mgmt/2017-10-01/containerregistry",
     "services/containerregistry/mgmt/2018-09-01/containerregistry",
-    "services/containerservice/mgmt/2018-03-31/containerservice",
-    "services/cosmos-db/mgmt/2015-04-08/documentdb",
-    "services/databricks/mgmt/2018-04-01/databricks",
-    "services/datalake/analytics/mgmt/2016-11-01/account",
-    "services/datalake/store/2016-11-01/filesystem",
-    "services/datalake/store/mgmt/2016-11-01/account",
-    "services/devtestlabs/mgmt/2016-05-15/dtl",
-    "services/eventgrid/mgmt/2018-01-01/eventgrid",
-    "services/eventhub/mgmt/2017-04-01/eventhub",
-    "services/graphrbac/1.6/graphrbac",
-    "services/iothub/mgmt/2018-04-01/devices",
-    "services/keyvault/2016-10-01/keyvault",
-    "services/keyvault/mgmt/2018-02-14/keyvault",
-    "services/logic/mgmt/2016-06-01/logic",
-    "services/mysql/mgmt/2017-12-01/mysql",
-    "services/network/mgmt/2018-04-01/network",
-    "services/notificationhubs/mgmt/2017-04-01/notificationhubs",
-    "services/postgresql/mgmt/2017-12-01/postgresql",
-    "services/preview/apimanagement/mgmt/2018-06-01-preview/apimanagement",
-    "services/preview/authorization/mgmt/2018-01-01-preview/authorization",
-    "services/preview/devspaces/mgmt/2018-06-01-preview/devspaces",
-    "services/preview/dns/mgmt/2018-03-01-preview/dns",
-    "services/preview/monitor/mgmt/2018-03-01/insights",
-    "services/preview/msi/mgmt/2015-08-31-preview/msi",
-    "services/preview/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
-    "services/preview/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
-    "services/preview/security/mgmt/2017-08-01-preview/security",
-    "services/preview/sql/mgmt/2015-05-01-preview/sql",
-    "services/preview/sql/mgmt/2017-10-01-preview/sql",
-    "services/recoveryservices/mgmt/2016-06-01/backup",
-    "services/recoveryservices/mgmt/2016-06-01/recoveryservices",
-    "services/redis/mgmt/2018-03-01/redis",
-    "services/relay/mgmt/2017-04-01/relay",
-    "services/resources/mgmt/2016-06-01/subscriptions",
-    "services/resources/mgmt/2016-09-01/locks",
-    "services/resources/mgmt/2016-12-01/policy",
-    "services/resources/mgmt/2017-05-10/resources",
-    "services/scheduler/mgmt/2016-03-01/scheduler",
-    "services/search/mgmt/2015-08-19/search",
-    "services/servicebus/mgmt/2017-04-01/servicebus",
-    "services/servicefabric/mgmt/2018-02-01/servicefabric",
-    "services/storage/mgmt/2017-10-01/storage",
-    "services/trafficmanager/mgmt/2017-05-01/trafficmanager",
-    "services/web/mgmt/2018-02-01/web",
-    "storage",
     "version",
   ]
   pruneopts = "NT"
-  revision = "07f918ba2d513bbc5b75bc4caac845e10f27449e"
-  version = "v23.0.0"
+  revision = "199e71492c8f8ffb9d1d9432d425a1c8731fba19"
+  version = "v23.2.0"
 
 [[projects]]
   digest = "1:5fa587ba796a1a8b0eb4e6b514c7e78a997df1bdfe3aea5e863fb2ffadd2238f"
@@ -116,105 +64,6 @@
   revision = "de5bf2ad457846296e2031421a34e2568e304e35"
 
 [[projects]]
-  digest = "1:8bd40ec66a32437126e8ff3080f26b11ca5926917daa01eba1285d0b059416bc"
-  name = "github.com/agext/levenshtein"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "5f10fee965225ac1eecdc234c09daf5cd9e7f7b6"
-  version = "v1.2.1"
-
-[[projects]]
-  digest = "1:1929b21a34400d463a99336f8e2908d2a154dc525c52411a8d99bb519942dc4c"
-  name = "github.com/apparentlymart/go-cidr"
-  packages = ["cidr"]
-  pruneopts = "NT"
-  revision = "b1115bf8e14a60131a196f908223e4506b0ddc35"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:ca4ebf76293ee2653f577bf737fbcbd90b07abb54c58cf786c02411413e5fa15"
-  name = "github.com/apparentlymart/go-textseg"
-  packages = ["textseg"]
-  pruneopts = "NT"
-  revision = "fb01f485ebef760e5ee06d55e1b07534dda2d295"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:e5ca3dcabf1452b51be600af6e2ce0a93a94978ae231af802cf9736bdbd835cb"
-  name = "github.com/armon/go-radix"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "1a2de0c21c94309923825da3df33a4381872c795"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:1b13702a26f0753a31f4f1a40cfb081aa44a3654e594503bf6483a4320d07a8a"
-  name = "github.com/aws/aws-sdk-go"
-  packages = [
-    "aws",
-    "aws/awserr",
-    "aws/awsutil",
-    "aws/client",
-    "aws/client/metadata",
-    "aws/corehandlers",
-    "aws/credentials",
-    "aws/credentials/ec2rolecreds",
-    "aws/credentials/endpointcreds",
-    "aws/credentials/processcreds",
-    "aws/credentials/stscreds",
-    "aws/csm",
-    "aws/defaults",
-    "aws/ec2metadata",
-    "aws/endpoints",
-    "aws/request",
-    "aws/session",
-    "aws/signer/v4",
-    "internal/ini",
-    "internal/s3err",
-    "internal/sdkio",
-    "internal/sdkrand",
-    "internal/sdkuri",
-    "internal/shareddefaults",
-    "private/protocol",
-    "private/protocol/eventstream",
-    "private/protocol/eventstream/eventstreamapi",
-    "private/protocol/query",
-    "private/protocol/query/queryutil",
-    "private/protocol/rest",
-    "private/protocol/restxml",
-    "private/protocol/xml/xmlutil",
-    "service/s3",
-    "service/sts",
-  ]
-  pruneopts = "NT"
-  revision = "c4e0e593d5f18b478f17ff0e86b56d41a70ced2d"
-  version = "v1.16.2"
-
-[[projects]]
-  branch = "master"
-  digest = "1:37011b20a70e205b93ebea5287e1afa5618db54bf3998c36ff5a8e4b146a170a"
-  name = "github.com/bgentry/go-netrc"
-  packages = ["netrc"]
-  pruneopts = "NT"
-  revision = "9fd32a8b3d3d3f9d43c341bfe098430e07609480"
-
-[[projects]]
-  digest = "1:8d38ae58aca7eb8b2df342d713478df1ef9b48b4cde66895aeb9799b616b6702"
-  name = "github.com/bgentry/speakeasy"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "4aabc24848ce5fd31929f7d1e4ea74d3709c14cd"
-  version = "v0.1.0"
-
-[[projects]]
-  digest = "1:aa09b5d3f9ee0d50d580e14b7c4fde6b4904d927acc2370cbc29574dc0535cb8"
-  name = "github.com/blang/semver"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "2ee87856327ba09384cabd113bc6b5d174e9ec0f"
-  version = "v3.5.1"
-
-[[projects]]
   digest = "1:e0a75643380c879a5f02adce67e17af5a3d6c583c3a6f701d67b2d6668ec9717"
   name = "github.com/census-instrumentation/opencensus-proto"
   packages = [
@@ -244,12 +93,12 @@
   version = "v3.2.0"
 
 [[projects]]
-  digest = "1:ec6271918b59b872a2d25e374569a4f75f1839d91e4191470c297b7eaaaf7641"
+  digest = "1:f9adc21a937e5da643ea14a3488cb7506788876737a5e205394e508627a6eec8"
   name = "github.com/dimchansky/utfbom"
   packages = ["."]
   pruneopts = "NT"
-  revision = "5448fe645cb1964ba70ac8f9f2ffe975e61a536c"
-  version = "v1.0.0"
+  revision = "d2133a1ce379ef6fa992b0514a77146c60db9d1c"
+  version = "v1.1.0"
 
 [[projects]]
   digest = "1:e6f888d4be8ec0f05c50e2aba83da4948b58045dee54d03be81fa74ea673302c"
@@ -261,14 +110,6 @@
   pruneopts = "NT"
   revision = "3eb9738c1697594ea6e71a7156a9bb32ed216cf0"
   version = "v2.8.0"
-
-[[projects]]
-  digest = "1:ade392a843b2035effb4b4a2efa2c3bab3eb29b992e98bacf9c898b0ecb54e45"
-  name = "github.com/fatih/color"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "5b77d2a35fb0ede96d138fc9a99f5c9b6aef11b4"
-  version = "v1.7.0"
 
 [[projects]]
   digest = "1:81466b4218bf6adddac2572a30ac733a9255919bc2f470b4827a317bd4ee1756"
@@ -377,19 +218,6 @@
   revision = "4030bb1f1f0c35b30ca7009e9ebd06849dd45306"
 
 [[projects]]
-  digest = "1:2ddc4fb22e0f7c7f6ce615f8b453aeb1c7d0eec746c1a5a62244363e1a836462"
-  name = "github.com/google/go-cmp"
-  packages = [
-    "cmp",
-    "cmp/internal/diff",
-    "cmp/internal/function",
-    "cmp/internal/value",
-  ]
-  pruneopts = "NT"
-  revision = "3af367b6b30c263d47e8895973edcca9a49cf029"
-  version = "v0.2.0"
-
-[[projects]]
   branch = "master"
   digest = "1:52c5834e2bebac9030c97cc0798ac11c3aa8a39f098aeb419f142533da6cd3cc"
   name = "github.com/google/gofuzz"
@@ -429,65 +257,6 @@
   revision = "c63ab54fda8f77302f8d414e19933f2b6026a089"
 
 [[projects]]
-  digest = "1:f0d9d74edbd40fdeada436d5ac9cb5197407899af3fef85ff0137077ffe8ae19"
-  name = "github.com/hashicorp/errwrap"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "8a6fb523712970c966eefc6b39ed2c5e74880354"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:a5d940c38bf56f121721bfa747c66356df387cb9d5318c570c6d4170aab62862"
-  name = "github.com/hashicorp/go-cleanhttp"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "e8ab9daed8d1ddd2d3c4efba338fe2eeae2e4f18"
-  version = "v0.5.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:82bd8637975dfa6b7acb3180170dff92a179a9aeec475a69e851a83d3466cc74"
-  name = "github.com/hashicorp/go-getter"
-  packages = [
-    ".",
-    "helper/url",
-  ]
-  pruneopts = "NT"
-  revision = "bd1edc22f8ea9d71b87fbdc0c07f0afb77ae39b6"
-
-[[projects]]
-  digest = "1:2ed138049ab373f696db2081ca48f15c5abdf20893803612a284f2bdce2bf443"
-  name = "github.com/hashicorp/go-multierror"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "886a7fbe3eb1c874d46f623bfa70af45f425b3d1"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:fbab03227343a0285fc74a68dd2ff46cda7edecbbe5a3e98d2cecd00cc67b217"
-  name = "github.com/hashicorp/go-safetemp"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "c9a55de4fe06c920a71964b53cfe3dd293a3c743"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:6c1c337aab3268149ef3fe6256dc79cc1abffa2269d3b222d00913956f317328"
-  name = "github.com/hashicorp/go-uuid"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "de160f5c59f693fed329e73e291bb751fe4ea4dc"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:0b06ffe0c0764e413a6738e3f045d6bb14117359aef80a09f8c60fbff2ecad6b"
-  name = "github.com/hashicorp/go-version"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "b5a281d3160aa11950a6182bd9a9dc2cb1e02d50"
-  version = "v1.0.0"
-
-[[projects]]
   digest = "1:b42cde0e1f3c816dd57f57f7bbcf05ca40263ad96f168714c130c611fc0856a6"
   name = "github.com/hashicorp/golang-lru"
   packages = [
@@ -499,85 +268,6 @@
   version = "v0.5.0"
 
 [[projects]]
-  digest = "1:62ba88d64dabadbbad170cf6b0d3bfd1f50c36b1566583a28d99304eb08a9bd2"
-  name = "github.com/hashicorp/hcl"
-  packages = [
-    ".",
-    "hcl/ast",
-    "hcl/parser",
-    "hcl/scanner",
-    "hcl/strconv",
-    "hcl/token",
-    "json/parser",
-    "json/scanner",
-    "json/token",
-  ]
-  pruneopts = "NT"
-  revision = "8cb6e5b959231cc1119e43259c4a608f9c51a241"
-  version = "v1.0.0"
-
-[[projects]]
-  branch = "master"
-  digest = "1:3d08ee997603f89be9343d4307c151016f3218fcbe94a8b94a5b9dea06b334ba"
-  name = "github.com/hashicorp/hcl2"
-  packages = [
-    "gohcl",
-    "hcl",
-    "hcl/hclsyntax",
-    "hcl/json",
-    "hcldec",
-    "hclparse",
-    "hclwrite",
-  ]
-  pruneopts = "NT"
-  revision = "6709268582006e0ec36ff54654fde9d68a46514a"
-
-[[projects]]
-  branch = "master"
-  digest = "1:0ba5dadb581f036a9d1e7a6fa9101ace3291334c86c1a6965adc43de64b2df3e"
-  name = "github.com/hashicorp/hil"
-  packages = [
-    ".",
-    "ast",
-    "parser",
-    "scanner",
-  ]
-  pruneopts = "NT"
-  revision = "fa9f258a92500514cc8e9c67020487709df92432"
-
-[[projects]]
-  digest = "1:502dc20d45289bac30676ea78432e9b45c0a8574c40bb30e8b8e2b1bdde32353"
-  name = "github.com/hashicorp/terraform"
-  packages = [
-    "config",
-    "config/configschema",
-    "config/hcl2shim",
-    "config/module",
-    "dag",
-    "flatmap",
-    "helper/hashcode",
-    "helper/hilmapstructure",
-    "helper/schema",
-    "helper/structure",
-    "helper/validation",
-    "httpclient",
-    "moduledeps",
-    "plugin/discovery",
-    "registry",
-    "registry/regsrc",
-    "registry/response",
-    "svchost",
-    "svchost/auth",
-    "svchost/disco",
-    "terraform",
-    "tfdiags",
-    "version",
-  ]
-  pruneopts = "NT"
-  revision = "17850e9a55d33c43d7c31fd6ac122ba97a51d899"
-  version = "v0.11.10"
-
-[[projects]]
   digest = "1:9a52adf44086cead3b384e5d0dbf7a1c1cce65e67552ee3383a8561c42a18cd3"
   name = "github.com/imdario/mergo"
   packages = ["."]
@@ -586,19 +276,20 @@
   version = "v0.3.6"
 
 [[projects]]
-  digest = "1:1234e31f3de67447e344dabcdf72c4588d31b8eed2d28f1889377ec006a086a9"
-  name = "github.com/jmespath/go-jmespath"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "c2b33e84"
-
-[[projects]]
   digest = "1:1d39c063244ad17c4b18e8da1551163b6ffb52bd1640a49a8ec5c3b7bf4dbd5d"
   name = "github.com/json-iterator/go"
   packages = ["."]
   pruneopts = "NT"
   revision = "1624edc4454b8682399def8740d46db5e4362ba4"
   version = "v1.1.5"
+
+[[projects]]
+  digest = "1:b8870bf2606dca65dc382f4cb8b7a434f17ff36a915451bda12788e9620be368"
+  name = "github.com/kelseyhightower/envconfig"
+  packages = ["."]
+  pruneopts = "NT"
+  revision = "f611eb38b3875cc3bd991ca91c51d06446afa14c"
+  version = "v1.3.0"
 
 [[projects]]
   branch = "master"
@@ -613,14 +304,6 @@
   revision = "60711f1a8329503b04e1c88535f419d0bb440bff"
 
 [[projects]]
-  digest = "1:13ada91f079028d1b4ca88e10a16439dcfa6541d26ed2e61e770f56d06301933"
-  name = "github.com/marstr/guid"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "8bd9a64bf37eb297b492a4101fb28e80ac0b290f"
-  version = "v1.1.0"
-
-[[projects]]
   branch = "master"
   digest = "1:0e9bfc47ab9941ecc3344e580baca5deb4091177e84dd9773b48b38ec26b93d5"
   name = "github.com/mattbaird/jsonpatch"
@@ -629,83 +312,11 @@
   revision = "81af80346b1a01caae0cbc27fd3c1ba5b11e189f"
 
 [[projects]]
-  digest = "1:e0a9ecd540b69f570f96c593b713268aad428e4a25a98f23467c59e6f69ab880"
-  name = "github.com/mattn/go-colorable"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "167de6bfdfba052fa6b2d3664c8f5272e23c9072"
-  version = "v0.0.9"
-
-[[projects]]
-  digest = "1:bffa444ca07c69c599ae5876bc18b25bfd5fa85b297ca10a25594d284a7e9c5d"
-  name = "github.com/mattn/go-isatty"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "6ca4dbf54d38eea1a992b3c722a76a5d1c4cb25c"
-  version = "v0.0.4"
-
-[[projects]]
-  digest = "1:874dbb1944c970cb6c5c683cc947b7a849b5fb2e6bdce41b1f95b3187916ed4b"
-  name = "github.com/mitchellh/cli"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "3d22a244be8aa6fb16ac24af0e195c08b7d973aa"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:1e5a8bf6fb005f1808852ad1a4bedb7b4b3291af90dec12c4c9e4a955a42c9b2"
-  name = "github.com/mitchellh/copystructure"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "9a1b6f44e8da0e0e374624fb0a825a231b00c537"
-  version = "v1.0.0"
-
-[[projects]]
   digest = "1:a4df73029d2c42fabcb6b41e327d2f87e685284ec03edf76921c267d9cfc9c23"
   name = "github.com/mitchellh/go-homedir"
   packages = ["."]
   pruneopts = "NT"
   revision = "ae18d6b8b3205b561c79e8e5f69bff09736185f4"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:18b773b92ac82a451c1276bd2776c1e55ce057ee202691ab33c8d6690efcc048"
-  name = "github.com/mitchellh/go-testing-interface"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "6d0b8010fcc857872e42fc6c931227569016843c"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:9f63926f52745d1f9d6053f8fbbb3bd3983c2c97c0565957e682b8d2f7aad3af"
-  name = "github.com/mitchellh/go-wordwrap"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "9e67c67572bc5dd02aef930e2b0ae3c02a4b5a5c"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:e34decedbcec12332c5836d16a6838f864e0b43c5b4f9aa9d9a85101015f87c2"
-  name = "github.com/mitchellh/hashstructure"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "a38c50148365edc8df43c1580c48fb2b3a1e9cd7"
-  version = "v1.0.0"
-
-[[projects]]
-  digest = "1:a45ae66dea4c899d79fceb116accfa1892105c251f0dcd9a217ddc276b42ec68"
-  name = "github.com/mitchellh/mapstructure"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "3536a929edddb9a5b34bd6861dc4a9647cb459fe"
-  version = "v1.1.2"
-
-[[projects]]
-  digest = "1:44e35ced240c6d8316dc8d604a73774ab052d40ebe636fd8f2ba5934f6329034"
-  name = "github.com/mitchellh/reflectwalk"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "eecee6c969c02c8cc2ae48e1e269843ae8590796"
   version = "v1.0.0"
 
 [[projects]]
@@ -762,78 +373,12 @@
   version = "v2.0.1"
 
 [[projects]]
-  digest = "1:1fbe7fca6faa1aa9a43e9e3663f45077d68a8ea09aa1ccd46b502e8a70877289"
-  name = "github.com/posener/complete"
-  packages = [
-    ".",
-    "cmd",
-    "cmd/install",
-    "match",
-  ]
-  pruneopts = "NT"
-  revision = "3ef9b31a6a0613ae832e7ecf208374027c3b2343"
-  version = "v1.2.1"
-
-[[projects]]
-  digest = "1:6bc0652ea6e39e22ccd522458b8bdd8665bf23bdc5a20eec90056e4dc7e273ca"
-  name = "github.com/satori/go.uuid"
-  packages = ["."]
-  pruneopts = "NT"
-  revision = "f58768cc1a7a7e77a3bd49e98cdd21419399b6a3"
-  version = "v1.2.0"
-
-[[projects]]
   digest = "1:9d8420bbf131d1618bde6530af37c3799340d3762cc47210c1d9532a4c3a2779"
   name = "github.com/spf13/pflag"
   packages = ["."]
   pruneopts = "NT"
   revision = "298182f68c66c05229eb03ac171abe6e309ee79a"
   version = "v1.0.3"
-
-[[projects]]
-  digest = "1:7dbb57c9eb30112b1970140713b4de8cddd0790d11a3c73784e55bad286d0519"
-  name = "github.com/terraform-providers/terraform-provider-azurerm"
-  packages = [
-    "azurerm/helpers/authentication",
-    "azurerm/helpers/azure",
-    "azurerm/helpers/response",
-    "azurerm/helpers/suppress",
-    "azurerm/helpers/validate",
-    "azurerm/utils",
-    "version",
-  ]
-  pruneopts = "NT"
-  revision = "e501d9ddc9cb4da4014533291fa41aa8be75d664"
-  version = "v1.19.0"
-
-[[projects]]
-  digest = "1:4852072d3f5ca54d76f326f9841ab835a7e7a31b1850d90533b540383c0e290e"
-  name = "github.com/ulikunitz/xz"
-  packages = [
-    ".",
-    "internal/hash",
-    "internal/xlog",
-    "lzma",
-  ]
-  pruneopts = "NT"
-  revision = "590df8077fbcb06ad62d7714da06c00e5dd2316d"
-  version = "v0.5.5"
-
-[[projects]]
-  branch = "master"
-  digest = "1:3ee69169eb78fa0b53958ee93e450e5c19ec557a35d6b217a8183bf0d6dabb47"
-  name = "github.com/zclconf/go-cty"
-  packages = [
-    "cty",
-    "cty/convert",
-    "cty/function",
-    "cty/function/stdlib",
-    "cty/gocty",
-    "cty/json",
-    "cty/set",
-  ]
-  pruneopts = "NT"
-  revision = "88fbe721e0f8ab7b3ba2d11da5c79f4900b6d762"
 
 [[projects]]
   digest = "1:2e9a15fd59188e110409eca9d356fe97b3c57e3cbb9ddcfa3616b16d282d7529"
@@ -895,15 +440,6 @@
   digest = "1:d6d3b59b8c4ceb6a7db2f20169719e57a8dcfa2c055b4418feb3fcc7bbd1a936"
   name = "golang.org/x/crypto"
   packages = [
-    "bcrypt",
-    "blowfish",
-    "cast5",
-    "openpgp",
-    "openpgp/armor",
-    "openpgp/elgamal",
-    "openpgp/errors",
-    "openpgp/packet",
-    "openpgp/s2k",
     "pkcs12",
     "pkcs12/internal/rc2",
     "ssh/terminal",
@@ -918,8 +454,6 @@
   packages = [
     "context",
     "context/ctxhttp",
-    "html",
-    "html/atom",
     "http/httpguts",
     "http2",
     "http2/hpack",
@@ -1371,77 +905,14 @@
   analyzer-name = "dep"
   analyzer-version = 1
   input-imports = [
-    "github.com/Azure/azure-sdk-for-go/services/appinsights/mgmt/2015-05-01/insights",
-    "github.com/Azure/azure-sdk-for-go/services/automation/mgmt/2015-10-31/automation",
-    "github.com/Azure/azure-sdk-for-go/services/cdn/mgmt/2017-10-12/cdn",
-    "github.com/Azure/azure-sdk-for-go/services/cognitiveservices/mgmt/2017-04-18/cognitiveservices",
-    "github.com/Azure/azure-sdk-for-go/services/compute/mgmt/2018-06-01/compute",
-    "github.com/Azure/azure-sdk-for-go/services/containerinstance/mgmt/2018-10-01/containerinstance",
-    "github.com/Azure/azure-sdk-for-go/services/containerregistry/mgmt/2017-10-01/containerregistry",
     "github.com/Azure/azure-sdk-for-go/services/containerregistry/mgmt/2018-09-01/containerregistry",
-    "github.com/Azure/azure-sdk-for-go/services/containerservice/mgmt/2018-03-31/containerservice",
-    "github.com/Azure/azure-sdk-for-go/services/cosmos-db/mgmt/2015-04-08/documentdb",
-    "github.com/Azure/azure-sdk-for-go/services/databricks/mgmt/2018-04-01/databricks",
-    "github.com/Azure/azure-sdk-for-go/services/datalake/analytics/mgmt/2016-11-01/account",
-    "github.com/Azure/azure-sdk-for-go/services/datalake/store/2016-11-01/filesystem",
-    "github.com/Azure/azure-sdk-for-go/services/datalake/store/mgmt/2016-11-01/account",
-    "github.com/Azure/azure-sdk-for-go/services/devtestlabs/mgmt/2016-05-15/dtl",
-    "github.com/Azure/azure-sdk-for-go/services/eventgrid/mgmt/2018-01-01/eventgrid",
-    "github.com/Azure/azure-sdk-for-go/services/eventhub/mgmt/2017-04-01/eventhub",
-    "github.com/Azure/azure-sdk-for-go/services/graphrbac/1.6/graphrbac",
-    "github.com/Azure/azure-sdk-for-go/services/iothub/mgmt/2018-04-01/devices",
-    "github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault",
-    "github.com/Azure/azure-sdk-for-go/services/keyvault/mgmt/2018-02-14/keyvault",
-    "github.com/Azure/azure-sdk-for-go/services/logic/mgmt/2016-06-01/logic",
-    "github.com/Azure/azure-sdk-for-go/services/mysql/mgmt/2017-12-01/mysql",
-    "github.com/Azure/azure-sdk-for-go/services/network/mgmt/2018-04-01/network",
-    "github.com/Azure/azure-sdk-for-go/services/notificationhubs/mgmt/2017-04-01/notificationhubs",
-    "github.com/Azure/azure-sdk-for-go/services/postgresql/mgmt/2017-12-01/postgresql",
-    "github.com/Azure/azure-sdk-for-go/services/preview/apimanagement/mgmt/2018-06-01-preview/apimanagement",
-    "github.com/Azure/azure-sdk-for-go/services/preview/authorization/mgmt/2018-01-01-preview/authorization",
-    "github.com/Azure/azure-sdk-for-go/services/preview/devspaces/mgmt/2018-06-01-preview/devspaces",
-    "github.com/Azure/azure-sdk-for-go/services/preview/dns/mgmt/2018-03-01-preview/dns",
-    "github.com/Azure/azure-sdk-for-go/services/preview/monitor/mgmt/2018-03-01/insights",
-    "github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi",
-    "github.com/Azure/azure-sdk-for-go/services/preview/operationalinsights/mgmt/2015-11-01-preview/operationalinsights",
-    "github.com/Azure/azure-sdk-for-go/services/preview/operationsmanagement/mgmt/2015-11-01-preview/operationsmanagement",
-    "github.com/Azure/azure-sdk-for-go/services/preview/security/mgmt/2017-08-01-preview/security",
-    "github.com/Azure/azure-sdk-for-go/services/preview/sql/mgmt/2015-05-01-preview/sql",
-    "github.com/Azure/azure-sdk-for-go/services/preview/sql/mgmt/2017-10-01-preview/sql",
-    "github.com/Azure/azure-sdk-for-go/services/recoveryservices/mgmt/2016-06-01/backup",
-    "github.com/Azure/azure-sdk-for-go/services/recoveryservices/mgmt/2016-06-01/recoveryservices",
-    "github.com/Azure/azure-sdk-for-go/services/redis/mgmt/2018-03-01/redis",
-    "github.com/Azure/azure-sdk-for-go/services/relay/mgmt/2017-04-01/relay",
-    "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2016-06-01/subscriptions",
-    "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2016-09-01/locks",
-    "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2016-12-01/policy",
-    "github.com/Azure/azure-sdk-for-go/services/resources/mgmt/2017-05-10/resources",
-    "github.com/Azure/azure-sdk-for-go/services/scheduler/mgmt/2016-03-01/scheduler",
-    "github.com/Azure/azure-sdk-for-go/services/search/mgmt/2015-08-19/search",
-    "github.com/Azure/azure-sdk-for-go/services/servicebus/mgmt/2017-04-01/servicebus",
-    "github.com/Azure/azure-sdk-for-go/services/servicefabric/mgmt/2018-02-01/servicefabric",
-    "github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2017-10-01/storage",
-    "github.com/Azure/azure-sdk-for-go/services/trafficmanager/mgmt/2017-05-01/trafficmanager",
-    "github.com/Azure/azure-sdk-for-go/services/web/mgmt/2018-02-01/web",
-    "github.com/Azure/azure-sdk-for-go/storage",
-    "github.com/Azure/go-autorest/autorest",
-    "github.com/Azure/go-autorest/autorest/adal",
     "github.com/Azure/go-autorest/autorest/azure",
     "github.com/Azure/go-autorest/autorest/azure/auth",
-    "github.com/hashicorp/go-uuid",
-    "github.com/hashicorp/terraform/helper/schema",
-    "github.com/hashicorp/terraform/helper/validation",
-    "github.com/hashicorp/terraform/httpclient",
+    "github.com/kelseyhightower/envconfig",
     "github.com/operator-framework/operator-sdk/pkg/k8sutil",
     "github.com/operator-framework/operator-sdk/pkg/leader",
     "github.com/operator-framework/operator-sdk/pkg/ready",
     "github.com/operator-framework/operator-sdk/version",
-    "github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/authentication",
-    "github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/azure",
-    "github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/response",
-    "github.com/terraform-providers/terraform-provider-azurerm/azurerm/helpers/suppress",
-    "github.com/terraform-providers/terraform-provider-azurerm/azurerm/utils",
-    "github.com/terraform-providers/terraform-provider-azurerm/version",
     "k8s.io/api/core/v1",
     "k8s.io/apimachinery/pkg/api/errors",
     "k8s.io/apimachinery/pkg/apis/meta/v1",

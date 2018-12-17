@@ -7,12 +7,12 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/techniumlabs/azure-service-operator/pkg/apis"
-	"github.com/techniumlabs/azure-service-operator/pkg/controller"
 	"github.com/operator-framework/operator-sdk/pkg/k8sutil"
 	"github.com/operator-framework/operator-sdk/pkg/leader"
 	"github.com/operator-framework/operator-sdk/pkg/ready"
 	sdkVersion "github.com/operator-framework/operator-sdk/version"
+	"github.com/techniumlabs/azure-service-operator/pkg/apis"
+	"github.com/techniumlabs/azure-service-operator/pkg/controller"
 	_ "k8s.io/client-go/plugin/pkg/client/auth/gcp"
 	"sigs.k8s.io/controller-runtime/pkg/client/config"
 	"sigs.k8s.io/controller-runtime/pkg/manager"
@@ -35,7 +35,7 @@ func main() {
 	// implementing the logr.Logger interface. This logger will
 	// be propagated through the whole operator, generating
 	// uniform and structured logs.
-	logf.SetLogger(logf.ZapLogger(false))
+	logf.SetLogger(logf.ZapLogger(true))
 
 	printVersion()
 
