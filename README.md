@@ -4,6 +4,11 @@ The Azure Service Operator allows you to manage Azure resources using Kubernetes
 
 ## Developer's Getting Started guide
 
+### Install dependencies
+
+```
+dep ensure
+```
 ### Install Operator SDK
 Install the [operator-sdk](https://github.com/operator-framework/operator-sdk) using the instruction details on that repository.
 
