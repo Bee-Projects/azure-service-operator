@@ -61,9 +61,9 @@ required = [
   name = "github.com/Azure/go-autorest"
   version = "11.2.8"
 
-[[constraint]]
-  name = "github.com/hashicorp/terraform"
-  version = "0.11.10"
+# [[constraint]]
+#   name = "github.com/hashicorp/terraform"
+#   version = "0.11.10"
 
 [[constraint]]
   name = "github.com/kelseyhightower/envconfig"
