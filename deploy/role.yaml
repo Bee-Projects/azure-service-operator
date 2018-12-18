@@ -42,5 +42,6 @@ rules:
   - operator.azure
   resources:
   - '*'
+  - storageaccounts
   verbs:
   - '*'

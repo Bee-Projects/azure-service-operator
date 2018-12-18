@@ -119,6 +119,14 @@ func (d *ArmDeployer) Deploy(
 	}
 
 	log.Info("Deployment Result", "value", result)
+
+	if err = result.WaitForCompletion(
+		ctx,
+		d.deploymentsClient.Client,
+	); err != nil {
+		return err
+	}
+
 	return nil
 }
 

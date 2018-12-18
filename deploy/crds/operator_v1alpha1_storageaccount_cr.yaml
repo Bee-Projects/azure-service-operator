@@ -1,0 +1,15 @@
+apiVersion: operator.azure/v1alpha1
+kind: StorageAccount
+metadata:
+  name: examplesacct123456789
+  finalizers:
+    - finalizer.operator.azure
+spec:
+  # Add fields here
+  resource_group_name: azure-operator
+  location: westeurope
+  account_type: Standard_RAGRS
+  kind: StorageV2
+  access_tier: Hot
+  supports_https_traffic_only: true
+
