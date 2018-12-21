@@ -1,0 +1,14 @@
+apiVersion: operator.azure/v1alpha1
+kind: Redis
+metadata:
+  name: example-redis
+  finalizers:
+    - finalizer.operator.azure
+spec:
+  resource_group_name: azure-operator
+  location: westeurope
+  enable_nonssl_port: false
+  shard_count: 1
+  sku_name: Premium
+  sku_family: P
+  capacity: 1

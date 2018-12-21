@@ -1,0 +1,47 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "skuName": {
+      "type": "string"
+    },
+    "skuFamily": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "int"
+    },
+    "enableNonSslPort": {
+      "type": "bool"
+    },
+    "shardCount": {
+      "type": "int",
+      "defaultValue": 0
+    }
+  },
+  "resources": [
+    {
+      "name": "[parameters('name')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "sku": {
+          "name": "[parameters('skuName')]",
+          "family": "[parameters('skuFamily')]",
+          "capacity": "[parameters('capacity')]"
+        },
+        "redisConfiguration": {},
+        "enableNonSslPort": "[parameters('enableNonSslPort')]",
+        "shardCount": "[parameters('shardCount')]"
+      },
+      "apiVersion": "2018-03-01",
+      "type": "Microsoft.Cache/Redis"
+    }
+  ]
+
+}
